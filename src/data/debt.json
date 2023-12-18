@@ -1,0 +1,150 @@
+[
+  {
+    "id": 1,
+    "name": "Item1",
+    "cost": 799,
+    "payer": {
+      "id": 1,
+      "name": "A",
+      "color": "#FD8A8A"
+    },
+    "debter": [
+      {
+        "person": {
+          "id": 1,
+          "name": "A",
+          "color": "#FD8A8A"
+        },
+        "amount": 134
+      },
+      {
+        "person": {
+          "id": 2,
+          "name": "B",
+          "color": "#FFCBCB"
+        },
+        "amount": 133
+      },
+      {
+        "person": {
+          "id": 4,
+          "name": "D",
+          "color": "#F1F7B5"
+        },
+        "amount": 133
+      },
+      {
+        "person": {
+          "id": 5,
+          "name": "E",
+          "color": "#A8D1D1"
+        },
+        "amount": 133
+      },
+      {
+        "person": {
+          "id": 6,
+          "name": "F",
+          "color": "#DFEBEB"
+        },
+        "amount": 133
+      },
+      {
+        "person": {
+          "id": 7,
+          "name": "G",
+          "color": "#FEC868"
+        },
+        "amount": 133
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Item2",
+    "cost": 2970,
+    "payer": {
+      "id": 2,
+      "name": "B",
+      "color": "#FFCBCB"
+    },
+    "debter": [
+      {
+        "person": {
+          "id": 1,
+          "name": "A",
+          "color": "#FD8A8A"
+        },
+        "amount": 594
+      },
+      {
+        "person": {
+          "id": 2,
+          "name": "B",
+          "color": "#FFCBCB"
+        },
+        "amount": 594
+      },
+      {
+        "person": {
+          "id": 4,
+          "name": "D",
+          "color": "#F1F7B5"
+        },
+        "amount": 594
+      },
+      {
+        "person": {
+          "id": 3,
+          "name": "C",
+          "color": "#9EA1D4"
+        },
+        "amount": 594
+      },
+      {
+        "person": {
+          "id": 6,
+          "name": "F",
+          "color": "#DFEBEB"
+        },
+        "amount": 594
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Item3",
+    "cost": 480,
+    "payer": {
+      "id": 4,
+      "name": "D",
+      "color": "#F1F7B5"
+    },
+    "debter": [
+      {
+        "person": {
+          "id": 1,
+          "name": "A",
+          "color": "#FD8A8A"
+        },
+        "amount": 160
+      },
+      {
+        "person": {
+          "id": 2,
+          "name": "B",
+          "color": "#FFCBCB"
+        },
+        "amount": 160
+      },
+      {
+        "person": {
+          "id": 4,
+          "name": "D",
+          "color": "#F1F7B5"
+        },
+        "amount": 160
+      }
+    ]
+  }
+]

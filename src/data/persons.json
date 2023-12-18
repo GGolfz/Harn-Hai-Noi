@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "A",
+        "color": "#FD8A8A"
+    },
+    {
+        "id": 2,
+        "name": "B",
+        "color": "#FFCBCB"
+    },
+    {
+        "id": 3,
+        "name": "C",
+        "color": "#9EA1D4"
+    },
+    {
+        "id": 4,
+        "name": "D",
+        "color": "#F1F7B5"
+    },
+    {
+        "id": 5,
+        "name": "E",
+        "color": "#A8D1D1"
+    },
+    {
+        "id": 6,
+        "name": "F",
+        "color": "#DFEBEB"
+    },
+    {
+        "id": 7,
+        "name": "G",
+        "color": "#FEC868"
+    }
+]
