@@ -1,0 +1,11 @@
+.NavbarContainer {
+    width: calc(100vw - 2rem);
+    padding: 1rem;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.Space {
+    width: 4rem;
+}

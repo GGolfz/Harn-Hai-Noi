@@ -1,7 +1,7 @@
 import { Person } from "./Person"
 
 export interface Item {
-    id: number,
+    id: string,
     name: string
     cost: number
     payer: Person

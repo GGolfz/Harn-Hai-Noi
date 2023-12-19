@@ -3,15 +3,20 @@ import { Item } from "../model/Item";
 import { Person } from "../model/Person";
 
 export interface Data {
-  [person: number]: {
-    [oweTo: number]: number;
+  [person: string]: {
+    [oweTo: string]: number;
   };
 }
-interface Pair {
-  person1: number;
-  person2: number;
+export interface ReportData {
+  person1: Person;
+  person2: Person;
+  amount: number;
 }
-const isOwe = (person1: number, person2: number, data: Data): boolean => {
+interface Pair {
+  person1: string;
+  person2: string;
+}
+const isOwe = (person1: string, person2: string, data: Data): boolean => {
   return !!data[person1][person2];
 };
 const getPersonPairs = (persons: Person[]) => {
@@ -67,21 +72,18 @@ const cleanTogetherOwe = (data: Data, pairs: Pair[]) => {
 const cleanData = (data: Data): void => {
   const keys = Object.keys(data);
   keys.map((key) => {
-    const keyAsNumber = parseInt(key);
-    const subKeys = Object.keys(data[keyAsNumber]);
+    const subKeys = Object.keys(data[key]);
     subKeys.map((subKey) => {
-      const subKeyAsNumber = parseInt(subKey);
-      if (data[keyAsNumber][subKeyAsNumber] === 0) {
-        delete data[keyAsNumber][subKeyAsNumber];
+      if (data[key][subKey] === 0) {
+        delete data[key][subKey];
       }
     });
   });
 };
 const simplifyDebt = (data: Data, pairs: Pair[]) => {
   pairs.map((pair) => {
-    for (let k in data[pair.person1]) {
+    for (let p3 in data[pair.person1]) {
       // For all people that A owe (C)
-      const p3 = parseInt(k);
       if (isOwe(pair.person2, p3, data)) {
         // A owe C and B also owe C
         if (
@@ -115,26 +117,26 @@ const simplifyDebt = (data: Data, pairs: Pair[]) => {
     }
   });
 };
-export const reportDebt = (data: Data, persons: Person[]): Array<string> => {
-  let reports = [];
+const postprocess = (data: Data, persons: Person[]): Array<ReportData> => {
+  let reports: Array<ReportData> = [];
   const personMap: {
-    [key: number]: Person;
+    [key: string]: Person;
   } = persons.reduce((map, person) => ({ ...map, [person.id]: person }), {});
   for (let p1 in data) {
-    const p1key = parseInt(p1);
-    const person1 = personMap[p1key];
+    const person1 = personMap[p1];
     for (let p2 in data[p1]) {
-      const p2key = parseInt(p2);
-      const person2 = personMap[p2key];
-      reports.push(
-        `${person1?.name} owe ${person2?.name}: ${data[p1key][p2key]} THB`
-      );
+      const person2 = personMap[p2];
+      reports.push({
+        person1,
+        person2,
+        amount: data[p1][p2],
+      });
     }
   }
   return reports;
 };
 
-export const processDebt = (bill: Bill): Data => {
+export const processDebt = (bill: Bill): Array<ReportData> => {
   const data: Data = getInitialData(bill.persons);
   const pairs = getPersonPairs(bill.persons);
   setupDebt(data, bill.items);
@@ -142,6 +144,5 @@ export const processDebt = (bill: Bill): Data => {
   cleanData(data);
   simplifyDebt(data, pairs);
   cleanData(data);
-  reportDebt(data, bill.persons);
-  return data;
+  return postprocess(data, bill.persons);
 };
